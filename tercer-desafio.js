@@ -2,24 +2,21 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-// Define the product archive
 const products = [
-  { id: 1, name: 'Product 1' },
-  { id: 2, name: 'Product 2' },
-  { id: 3, name: 'Product 3' },
-  { id: 4, name: 'Product 4' },
-  { id: 5, name: 'Product 5' },
-  { id: 6, name: 'Product 6' },
-  { id: 7, name: 'Product 7' },
-  { id: 8, name: 'Product 8' },
-  { id: 9, name: 'Product 9' },
-  { id: 10, name: 'Product 10' },
+  { id: 1, name: 'Producto 1' },
+  { id: 2, name: 'Producto 2' },
+  { id: 3, name: 'Producto 3' },
+  { id: 4, name: 'Producto 4' },
+  { id: 5, name: 'Producto 5' },
+  { id: 6, name: 'Producto 6' },
+  { id: 7, name: 'Producto 7' },
+  { id: 8, name: 'Producto 8' },
+  { id: 9, name: 'Producto 9' },
+  { id: 10, name: 'Producto 10' },
 ];
 
-// Set up body parser middleware
 app.use(bodyParser.json());
 
-// Define the routes
 app.get('/products', (req, res) => {
   const limit = req.query.limit || products.length;
   const result = products.slice(0, limit);
@@ -32,11 +29,10 @@ app.get('/products/:id', (req, res) => {
   if (product) {
     res.json(product);
   } else {
-    res.status(404).json({ error: 'Product not found' });
+    res.status(404).json({ error: 'Producto no encontrado' });
   }
 });
 
-// Start the server
 app.listen(8080, () => {
-  console.log('Server started on port 8080');
+  console.log('Server iniciado en el puerto 8080');
 });
