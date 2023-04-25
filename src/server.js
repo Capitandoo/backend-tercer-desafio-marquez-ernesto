@@ -1,7 +1,9 @@
 import express from 'express';
 import fs from 'fs/promises';
+import ProductManager from './componentes/ProductManager.js';
 
 const app = express();
+const productos = new ProductManager ();
 const port = 8080;
 
 app.listen(port, () => {
